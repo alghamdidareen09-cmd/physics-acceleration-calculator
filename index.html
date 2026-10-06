@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>حاسبة التسارع</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #fffacd; /* Light yellow background */
+            color: #333; /* Dark text */
+        }
+        h1 {
+            color: #000080; /* Navy blue title color */
+        }
+        label {
+            color: #007bff; /* Blue label color */
+        }
+        input {
+            margin: 10px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button {
+            background-color: #007bff; /* Blue button */
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3; /* Darker blue on hover */
+        }
+    </style>
+</head>
+<body>
+    <h1>تسهيل الفيزياء</h1>
+    <h2>حساب التسارع</h2>
+    <label for="force">أدخل القوة (F):</label>
+    <input type="number" id="force" placeholder="بالنيوتن"><br>
+    
+    <label for="mass">أدخل الكتلة (m):</label>
+    <input type="number" id="mass" placeholder="بالكيلوغرام"><br>
+    
+    <button onclick="calculateAcceleration()">احسب التسارع</button>
+    
+    <h3 id="result"></h3>
+    
+    <p>باشراف المعلمة: سمر الغامدي</p>
+
+    <script>
+        function calculateAcceleration() {
+            const force = parseFloat(document.getElementById('force').value);
+            const mass = parseFloat(document.getElementById('mass').value);
+            const resultElement = document.getElementById('result');
+
+            if (mass === 0) {
+                resultElement.innerText = "الكتلة لا يمكن أن تكون صفرًا.";
+                return;
+            }
+
+            const acceleration = force / mass;
+            resultElement.innerText = `التسارع هو: ${acceleration} م/ث²`;
+        }
+    </script>
+</body>
+</html>
